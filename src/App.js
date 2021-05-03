@@ -1,6 +1,11 @@
-import { ChatEngine, Avatar } from "react-chat-engine";
+import { ChatEngine } from "react-chat-engine";
 
+import './assets/css/bootstrap.min.css';
+import './assets/css/components.min.css';
+import './assets/css/app-chat.min.css';
+import './assets/css/app-chat-list.min.css';
 import './assets/App.css';
+
 
 function App() {
   return (
