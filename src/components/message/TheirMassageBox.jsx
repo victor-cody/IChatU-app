@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TheirMassageBox = () => {
+const TheirMassageBox = ({lastMessage, message}) => {
 	return (
 		<div>
 			
