@@ -20,15 +20,14 @@ const LoginForm = () => {
 			//fetch the current user if it exists
 			await axios.get('https://api.chatengine.io/chats', {headers:authObject});
 			//saving user's username and password to localStorage
-			localStorage.setItem('úsername', username);
+			localStorage.setItem('username', username);
 			localStorage.setItem('password', password);
 			//reload the page
 			window.location.reload();
 		} catch (error) {
-			setError(`Opps Incorrect Credentials 😔, Please do check that the username and password are correct 🥰`)
+			setError(`Incorrect Credentials 😔: check that the username and password are correct 🥰`)
 		}
-		setUsername('');
-		setPassword('');
+
 	}
 	return (
 		<div className="wrapper">
@@ -49,13 +48,14 @@ const LoginForm = () => {
 						required />
 
 						<div align="center">
-							<button type="submit" className="button">
+							<button type="submit" className="button" onClick={handelSubmit} >
 								<span>Login To Chat</span>
 							</button>
 						</div>
-					<h2 className="error">{error}</h2>
+					
 
 				</form>
+				<h2 className="error">{error}</h2>
 			</div>
 		</div>
 	);

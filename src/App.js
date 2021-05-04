@@ -13,6 +13,9 @@ import './assets/App.css';
 
 
 function App() {
+
+  // const a = '2f389292-d5e1-4799-bd31-b456e7e94845';
+
   if(!localStorage.getItem('username')) return <LoginForm/> ;
 
   return (
@@ -25,6 +28,7 @@ function App() {
       // userSecret='floxy64'
 
       renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
+      onNewMessage={() => new Audio('https://chat-engine-assets.s3.amazonaws.com/click.mp3').play()}
     />
   );
 }

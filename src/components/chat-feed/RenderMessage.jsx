@@ -5,11 +5,12 @@ import TheirMessageBox from '../message/TheirMessageBox';
 import MyMessageBox from '../message/MyMessageBox';
 
 const RenderMessage = ({ chat, messages, userName }) => {
+	const appChats = chat;
 	const keys = Object.keys(messages);
 
 	return keys.map((key, index) => {
 		const message = messages[key];
-		const isLastMessage = index === 0 ? null : messages[index - 1];
+		const LastMessage = index === 0 ? null : messages[index - 1];
 		const isMyMessage = userName === message.sender.username;
 
 		return (
@@ -19,10 +20,10 @@ const RenderMessage = ({ chat, messages, userName }) => {
 						?
 						<MyMessageBox message={message} />
 						:
-						<TheirMessageBox message={message} lastMessage={isLastMessage} />
+						<TheirMessageBox message={message} lastMessage={messages[LastMessage]} />
 				}
 				<div className="read-receipts" style={{ marginRight: isMyMessage ? '18px' : '0px', marginLeft: isMyMessage ? '0px' : '68px' }}>
-					<ReadReceipts chat={chat} message={message} isMyMessage={isMyMessage} />
+					<ReadReceipts chat={appChats} message={message} isMyMessage={isMyMessage} />
 				</div>
 			</div>
 		)
