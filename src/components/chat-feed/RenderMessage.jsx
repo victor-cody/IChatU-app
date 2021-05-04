@@ -1,8 +1,10 @@
 import React from 'react';
-import TheirMessageBox from '../message/TheirMassageBox';
-import MyMessageBox from '../message/MyMassageBox';
 
-const RenderMessage = ({ messages, userName }) => {
+import ReadReceipts from './ReadReceipts';
+import TheirMessageBox from '../message/TheirMessageBox';
+import MyMessageBox from '../message/MyMessageBox';
+
+const RenderMessage = ({ chat, messages, userName }) => {
 	const keys = Object.keys(messages);
 
 	return keys.map((key, index) => {
@@ -20,7 +22,7 @@ const RenderMessage = ({ messages, userName }) => {
 						<TheirMessageBox message={message} lastMessage={isLastMessage} />
 				}
 				<div className="read-receipts" style={{ marginRight: isMyMessage ? '18px' : '0px', marginLeft: isMyMessage ? '0px' : '68px' }}>
-					{'this is' + isLastMessage}
+					<ReadReceipts chat={chat} message={message} isMyMessage={isMyMessage} />
 				</div>
 			</div>
 		)

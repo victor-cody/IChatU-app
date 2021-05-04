@@ -12,9 +12,9 @@ const MyMessageBox = ({ message }) => {
 		)
 	}
 	return (
-		<div class="chat">
-			{/* <div class="chat-avatar">
-				<span class="avatar box-shadow-1 cursor-pointer">
+		<div className="chat">
+			{/* <div className="chat-avatar">
+				<span className="avatar box-shadow-1 cursor-pointer">
 					<img
 						src="../../../app-assets/images/portrait/small/avatar-s-11.jpg"
 						alt="avatar"
@@ -23,8 +23,8 @@ const MyMessageBox = ({ message }) => {
 					/>
 				</span>
 			</div> */}
-			<div class="chat-body">
-				<div class="chat-content">
+			<div className="chat-body">
+				<div className="chat-content">
 					<p>{message.text}</p>
 				</div>
 			</div>
