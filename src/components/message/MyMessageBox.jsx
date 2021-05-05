@@ -9,25 +9,12 @@ const MyMessageBox = ({ message }) => {
 				className="message-image"
 				style={{ float: 'right' }}
 			/>
-		)
+		);
 	}
+
 	return (
-		<div className="chat">
-			{/* <div className="chat-avatar">
-				<span className="avatar box-shadow-1 cursor-pointer">
-					<img
-						src="../../../app-assets/images/portrait/small/avatar-s-11.jpg"
-						alt="avatar"
-						height="36"
-						width="36"
-					/>
-				</span>
-			</div> */}
-			<div className="chat-body">
-				<div className="chat-content">
-					<p>{message.text}</p>
-				</div>
-			</div>
+		<div className="message my-message" style={{ float: 'right', marginRight: '18px', color: 'white', backgroundColor: '#007bff' }}>
+			{message.text}
 		</div>
 	);
 };

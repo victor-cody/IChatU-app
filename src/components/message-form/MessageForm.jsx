@@ -7,9 +7,11 @@ const MessageForm = (props) => {
 	const { chatId, creds } = props;
 
 	const enterChat = (e) => {
-		e.preventdefault();
+		e.preventDefault();
 		const text = value.trim();
-		if (text.length > 0) sendMessage(creds, chatId, { text });
+		if (text.length > 0) {
+			sendMessage(creds, chatId, { text });
+		}
 		setValue('')
 	}
 
@@ -19,34 +21,32 @@ const MessageForm = (props) => {
 	}
 
 	const handelUpload = (e) => {
-		e.preventdefault();
 		sendMessage(creds, chatId, { files: e.target.files, text: '' });
 	}
 
 	return (
-		<form className="chat-app-form" action="#" onsubmit={enterChat}>
-			<div className="input-group input-group-merge mr-1 form-send-message">
-				{/* <div className="input-group-prepend">
-						<span className="speech-to-text input-group-text"><i data-feather="mic" className="cursor-pointer"></i></span>
-					</div> */}
-				<input type="text" className="form-control message"
-					placeholder="Type your message or use speech to text"
-					aria-label='çhat message box'
-					value={value}
-					onChange={handelChange} />
+		<form className="message-form" onSubmit={enterChat}>
+			<input
+				className="message-input"
+				placeholder="Send a message..."
+				value={value}
+				onChange={handelChange}
+				// onSubmit={enterChat}
+			/>
+			<label htmlFor="upload-button">
+				<span className="image-button">
+					<PictureOutlined className="picture-icon" />
+				</span>
+			</label>
+			<input
+				type="file"
+				multiple={false}
+				id="upload-button"
+				style={{ display: 'none' }}
+				onChange={handelUpload.bind(this)}
+			/>
 
-				<div className="input-group-append">
-					<span className="input-group-text">
-						<label htmlFor="attach-doc" className="attachment-icon mb-0">
-							<PictureOutlined className="cursor-pointer lighten-2 text-secondary" />
-							<input type="file" id="attach-doc" hidden
-								onChange={handelUpload}
-							/> </label
-						></span>
-				</div>
-
-			</div>
-			<button type="submit" className="btn btn-primary send" onclick={enterChat}>
+			<button type="submit" className="btn btn-primary send-button" onclick={enterChat}>
 				<SendOutlined className="d-lg-none" />
 				<span className="d-none d-lg-block">Send</span>
 			</button>
