@@ -6,7 +6,6 @@ import MessageForm from '../message-form/MessageForm';
 import {useHistory } from "react-router-dom";
 
 const ChatFeed = (props) => {
-	console.log(props);
 	const { chats, activeChat, userName, messages } = props;
 
 	const history = useHistory()
@@ -63,7 +62,7 @@ const ChatFeed = (props) => {
 			{renderMessages()}
 			<div style={{ height: '100px' }} />
 			<div className="message-form-container">
-				<MessageForm {...props} chatId={activeChat} />
+				<MessageForm {...props} chatID={activeChat} />
 			</div>
 		</div>
 	);

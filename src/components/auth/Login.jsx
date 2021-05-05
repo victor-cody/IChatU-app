@@ -24,7 +24,8 @@ const LoginForm = () => {
 
 		try {
 			//fetch the current user if it exists
-			await axios.get('https://api.chatengine.io/chats', { headers: authObject });
+			const user = await axios.get('https://api.chatengine.io/chats', { headers: authObject });
+			console.log(user);
 			//saving user's username and password to localStorage
 			localStorage.setItem('username', username);
 			localStorage.setItem('password', password);

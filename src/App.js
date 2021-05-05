@@ -6,17 +6,10 @@ import ChatFeed from './components/chat-feed/ChatFeed';
 import LoginForm from './components/auth/Login';
 import SignUpForm from './components/auth/SignUp';
 
-
 import './assets/css/bootstrap.min.css';
 import './assets/App.css';
 
-
-
 function App() {
-
-  // const a = '2f389292-d5e1-4799-bd31-b456e7e94845';
-
-  // if (!localStorage.getItem('username')) return <LoginForm />;
 
   return (
     <Router>
